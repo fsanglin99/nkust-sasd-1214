@@ -13,7 +13,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/
     return redirect('/');
 })->name('dashboard');
 
-/*
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/
      dashboard', function () {
     return view('dashboard');

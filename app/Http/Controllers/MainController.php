@@ -23,20 +23,7 @@ class MainController extends Controller
     return redirect("/");  
     }
 
-    //remove
-    public function remove($id)
-         {
-       \App\Models\Headlines::where('id',$id) ->delete();
-       return redirect("/headline");  
-        }
-    // public function destory(Request $req) {
-    // $data  =new Headlines;
-    // $data = $Headlines::find($title);
-    // $data->delete();
-    // $titles= Headlines::all();
-    // return view("index",compact('titles'));    return redirect("/");  
-    // }
-
+ 
     public function logout() {
         Auth::logout();
         return redirect("/");
