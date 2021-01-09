@@ -6,7 +6,7 @@ use App\Http\Controllers\MainController;
 Route::get('/', [MainController::class,"index"]);
 Route::post('/insert',[MainController::class,"insert"]);
 Route::get('/mylogout',[MainController::class,"logout"]);
-Route::get('/remove',[MainController::class,"remove"]);
+// Route::get('/remove',[MainController::class,"remove"]);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/
      dashboard', function () {
