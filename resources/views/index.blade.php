@@ -42,7 +42,7 @@
           <a class="nav-link" href="/mylogout/">登出</a>
           </li>
 
-          <li> 您好，<?php $user = Auth::user(); echo $user->name; ?> </li>
+          <li> 訪客您好，<?php $user = Auth::user(); echo $user->name; ?> </li>
 
         @endauth
       </ul>

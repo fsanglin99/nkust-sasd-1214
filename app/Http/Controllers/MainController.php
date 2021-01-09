@@ -12,19 +12,24 @@ class MainController extends Controller
         $titles= Headlines::all();
         return view("index",compact('titles'));
     }
-    
+  
     public function insert(Request $req) {
-    if  ($req ->isMethod('post')){
-        $title = $req ->input('title');
-        $data  = new Headlines;
-        $data ->title = $title;
-        $data ->save();
+        if  ($req ->isMethod('post')) {
+             $title = $req ->input('title');
+             $data  = new Headlines;
+             $data->title = $title;
+             $data->save();
         }
-    return redirect("/");  
+        return redirect("/");  
     }
-
+  
     public function logout() {
         Auth::logout();
-        return redirect("/");
+        return  redirect("/");
+    }
+    public function empty() {
+        Auth::empty();
+        return  redirect("/");
     }
  }
+ 
