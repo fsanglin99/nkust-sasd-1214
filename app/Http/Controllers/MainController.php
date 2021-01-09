@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Http\Request;
+use App\Models\Headlines;
+
+class MainController extends Controller
+{
+    public function index()  {
+        $titles= Headlines::all();
+        return view("index",compact('titles'));
+    }
+    
+    public function insert(Request $req) {
+    if  ($req ->isMethod('post')){
+        $title = $req ->input('title');
+        $data  = new Headlines;
+        $data ->title = $title;
+        $data ->save();
+        }
+    return redirect("/");  
+    }
+
+    //remove
+    public function remove($id)
+         {
+       \App\Models\Headlines::where('id',$id) ->delete();
+       return redirect("/headline");  
+        }
+    // public function destory(Request $req) {
+    // $data  =new Headlines;
+    // $data = $Headlines::find($title);
+    // $data->delete();
+    // $titles= Headlines::all();
+    // return view("index",compact('titles'));    return redirect("/");  
+    // }
+
+    public function logout() {
+        Auth::logout();
+        return redirect("/");
+    }
+ 
+}

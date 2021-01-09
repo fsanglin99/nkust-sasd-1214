@@ -1,22 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+
+Route::get('/', [MainController::class,"index"]);
+Route::post('/insert',[MainController::class,"insert"]);
+Route::get('/mylogout',[MainController::class,"logout"]);
+Route::get('/remove',[MainController::class,"remove"]);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/
+     dashboard', function () {
+    return redirect('/');
+})->name('dashboard');
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/
+     dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
